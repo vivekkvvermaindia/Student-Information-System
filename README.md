@@ -13,4 +13,4 @@ The student can view his details and can also modify some of his details.
 
 There is one home page and one about us page.
 
-All thevalidations of the form has been done by JavaScript.
+All the validations of the form has been done by JavaScript.
