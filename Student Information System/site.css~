@@ -1,0 +1,73 @@
+<style>
+*{
+margin:0
+}
+div.ui-datepicker{
+ font-size:12px;
+}
+ul{
+list-style-type:none;
+margin:0;
+padding:0;
+background-color:black;
+overflow:hidden;
+color:white;
+}
+li{
+float:left;
+}
+li a{
+display:inline-block;
+text-decoration:none;
+text-align:center;
+font-size:20px;
+color:white;
+padding:15px 15px 15px 15px ;
+}
+li a:hover{
+background-color:red;
+color:white;
+}
+li a:active{
+background-color:red;
+color:white;
+}
+#c{
+background-image:url("images/logo.png");
+background-position:right top;
+background-repeat:no-repeat;
+background-size:130px 130px;
+background-color:orange;
+color: black ;   
+padding:40px;
+font-weight:bold;
+font-size:40px;
+margin:0;
+}
+.g{
+    width: 350px;
+    padding: 25px;
+    border: 10px solid red;
+    margin: 25px;
+	margin-left:500px;
+}
+body{
+background-image:url("images/2.jpg");
+background-repeat:no-repeat;
+min-height:100%;
+min-width:100%;
+}
+#a{
+margin:10px;
+color:blue;
+}
+.fo{
+margin:10px;
+font-size:20px;
+font-weight:bold;
+-webkit-column-count: 1;
+}
+legend{
+color:blue;
+}
+</style>

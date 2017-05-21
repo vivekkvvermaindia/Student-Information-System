@@ -1,0 +1,88 @@
+<?php
+session_start();
+?>
+<!DOCTYPE html>
+<html>
+<head>
+<title>
+Administrator Login
+</title>
+<link rel="stylesheet" href="site.css">
+<link rel="stylesheet" href="jquery/jquery-ui.min.css">
+<script src="jquery/external/jquery/jquery.js"></script>
+<script src="jquery/jquery-ui.min.js"></script>
+<style>
+*{
+margin:0;
+}
+</style>
+</head>
+<body>
+<?php 
+$conn = mysqli_connect("localhost",'root','','db1') or die() ;
+if ( isset($_POST['Login']))
+{
+	$username = $_POST['username'];
+	$password = $_POST['password'];
+$remember = $_POST['remember'];
+        if($username && $password)
+	{
+		$login = mysqli_query($conn,"Select * from admin where username = '$username' ");
+		while(($row = mysqli_fetch_assoc($login)))
+		{
+			$db_password = $row['password'];
+			if($db_password == $password)
+				$loginok = TRUE;
+			else
+				$loginok = FALSE;
+			if($loginok == TRUE)
+			{
+				
+				if($remember == "on")
+				{
+					setcookie("username",$username,time()+7200 );
+				}
+				else if($remember == '')
+				{
+					$_SESSION['username'] = $username;
+				}
+				header("Location:admin_login.php");
+			}
+			else
+			{
+				die("Incorrect username/password combination");
+			}
+		}
+	}
+	else
+	{
+		die("Please enter correct username and password ");
+	}
+}
+?>
+<?php include("header.html");?>
+<h3 style="text-align:center;margin-top:20px;font-size:30px">Administrator Login</h3>
+<div class="g">
+<form action="administrator_login.php" method="POST">
+<table>
+  <col-width:100px>
+  <col-width:100px>
+  <tr>
+    <td style="font-size:25px;font-weight:bold">Username</td>
+    <td><input type="text" name="username" required></td>
+  </tr>
+ <tr>
+    <td style="font-size:25px;font-weight:bold">Password</td>
+    <td><input type="password" name="password"required></td> 
+  </tr>
+  <tr>
+	<td><input type="checkbox" name="remember">Remember me</td>
+	<td><a href="#">  Forgot password?</a></td>
+  </tr>
+  </table>
+  <br>
+  <input type="submit" style="font-size:20px;font-weight:bold;margin-left:100px" name="Login" value="Login">
+</form>
+</div>
+</body>
+</html>

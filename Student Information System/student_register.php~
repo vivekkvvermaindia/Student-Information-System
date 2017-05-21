@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>
+Student Registration
+</title>
+<link rel="stylesheet" href="site.css">
+<link rel="stylesheet" href="jquery/jquery-ui.min.css">
+<script src="jquery/external/jquery/jquery.js"></script>
+<script src="jquery/jquery-ui.min.js"></script>
+<style>
+*{
+margin:0;
+}
+</style>
+<script>
+  $(document).ready(function() {
+    $("#datepicker").datepicker({
+	changeMonth:true,
+	changeYear:true,
+  });
+  });
+  function branchcode1(){
+  var x = document.getElementById("branch");
+  var y = document.getElementById("branchcode");
+  if(x.value == "Biotechnology")
+  y.value="BT";
+  else if(x.value == "Chemical")
+  y.value="CHE";
+  else if(x.value == "Computer_Science")
+  y.value="CSE";
+  else if(x.value == "Information_technology")
+  y.value="IT";
+  else if(x.value == "Metallurgy")
+  y.value="MME";
+  else if(x.value == "Mechanical")
+  y.value="ME";
+  else if(x.value == "Electrical")
+  y.value="EE";
+  else if(x.value == "Electronics")
+  y.value="ECE";
+  else if(x.value == "Civil")
+  y.value="CE";
+  }
+  function checkpasswords(){
+  var x = document.getElementById("password1");
+  var y = document.getElementById("password2");
+  if(x.value!=y.value)
+  alert("Passwords do not match");
+  }
+  function find_roll(){
+  var x = document.getElementById("registration_no");
+  var y = document.getElementById("rollno")
+  y.value= x.value.substring(2,4);
+  }
+</script>
+</head>
+<body>
+<?php include("header.html");?>
+<?php include("1.php");?>
+<form name="a" method="POST">
+<div class="fo">
+<fieldset>
+  <legend>Student Personal Details</legend>
+<table>
+  <col-width:100px>
+  <col-width:100px>
+  <tr>
+    <td>First Name</td>
+    <td><input type="text" name="firstname" id="firstname" required></td>
+  </tr>
+ <tr>
+    <td>Last Name</td>
+    <td><input type="text" name="lastname" id="lastname" required></td> 
+  </tr>
+  <tr>
+	<td>Email</td>
+	<td><input type="text" name="email" id="email"required>
+	    <select name="email_extension" >
+		<option value="gmail">@gmail.com</option>
+		<option value="yahoo">@yahoo.in</option>
+		<option value="rediffmail">@rediffmail.com</option>
+		<option value="outlook">@outlook.com</option></td>
+  </tr>
+  
+  <tr>
+    <td>Street</td>
+    <td><input type="text" name="street" id="street"required></td> 
+  </tr>
+  <tr>
+    <td>City</td>
+    <td><input type="text" name="city" id="city"required></td> 
+  </tr>
+  <tr>
+    <td>State</td>
+    <td><input type="text" name="state" id="state"required></td> 
+  </tr>
+  <tr>
+    <td>Country</td>
+    <td><input type="text" name="country"  id="country"required></td> 
+  </tr>
+  <tr>
+    <td>Pincode</td>
+    <td><input type="text" name="pincode" id="pincode"required></td> 
+  </tr>
+  <tr>
+    <td>Date of Birth</td>
+    <td><input type="text" name="dateofbirth" id="datepicker"required></td> 
+  </tr>
+  
+  <tr>
+	<td>Gender</td>
+    <td>Male  <input type="radio" name="gender" id="gender"required>  Female  <input type="radio" name="gender"></td>
+  </tr>
+   <tr>
+	<td>Contact No.</td>
+	<td><input type="text" name="contact" id="contact"required></td>
+   </tr>
+   <tr>
+	 <td>Hobbies</td>
+	 <td><input type="checkbox" name="hobbies">Drawing
+		 <input type="checkbox" name="hobbies"> Singing
+		 <input type="checkbox" name="hobbies"> Reading 
+		 <input type="checkbox" name="hobbies"> Dancing
+		 <input type="checkbox" name="hobbies"> Others</td>
+		 </tr>
+   </table>
+   <tr>
+	<td>Upload Photo</td>
+	<td><input type="file" name="photo"></td>
+   </tr>
+   </fieldset>
+   <br>
+   <fieldset>
+   <legend>Student Academic Details</legend>
+   <table>
+   <col-width:160px>
+   <col-width:100px>
+   <tr>
+   <td>Registration No.</td>
+   <td><input type="text" id = "registration_no" name="registration_no" onchange="find_roll()"required></td>
+   </tr>
+   <tr>
+	<td>Degree Pursuing</td>
+	<td><select name="degree" id="degree"required>
+		<option value="none"><----Select----></option>
+		<option value="btech">B.Tech</option>
+		<option value="mtech">M.Tech</option></td>
+   <tr>
+	<td>Current year of Study</td>
+	<td><select name="year" id="year"required>
+		<option value="none"><-----Select------></option>
+		<option value="First">First</option>
+		<option value="Second">Second</option>
+		<option value="Third">Third</option>
+		<option value="Fourth">Fourth</option></td>
+	</tr>
+   <tr>
+	<td>Branch</td>
+	<td><select name="branch" id="branch" style="width:170px;" onchange="branchcode1()"required>
+	    <option value="none"><------Select------></option>
+	    <option value="Biotechnology">Bio-Technology</option>
+		<option value="Civil">Civil Engineering</option>
+		<option value="Computer_Science">Computer Science & Engineering</option>
+		<option value="Chemical">Chemical Engineering</option>
+		<option value="Electronics">Electronics & Communication Engineering</option>
+		<option value="Electrical">Electrical Engineering</option>
+		<option value="Information_technology">Information Technology</option>
+		<option value="Mechanical">Mechanical Engineering</option>
+		<option value="Metallurgy">Metallurgy & Materials Engineering</option>
+	</td>
+   </tr>
+  <tr>
+    <td>Roll-No</td>
+    <td>
+	<textarea style="margin-top:2px" rows=1 cols=2 id="rollno" name="rollno" readonly></textarea> /
+	<textarea style="margin-top:2px;font-weight:bold" id="branchcode" rows=1 cols=2 name="rollno" readonly></textarea> /
+	<textarea style="margin-top:2px" rows=1 cols=2 id="rollno2" name="rollno"required></textarea>
+  </tr>
+  <tr>
+	<td>CGPA</td>
+	<td><input type="text" name="cgpa" id="cgpa" style="width:30px"required></input>
+   </table>
+   </fieldset>
+   <br>
+   <fieldset>
+   <legend>Student Login Details</legend>
+   <table>
+   <col-width:100px>
+   <col-width:100px>
+   <tr>
+    <td>Username</td>
+    <td><input type="text" name="username" id="username"required></td> 
+  </tr>
+  <tr>
+    <td>Password</td>
+    <td><input type="password" name="password1" id="password1"required></td> 
+  </tr>
+  <tr>
+    <td>Confirm Password</td>
+    <td><input type="password" name="password2" id="password2" onchange="checkpasswords()"required></td> 
+  </tr>
+   </table>
+   </fieldset>
+   </div>
+   <br>
+  <input type="Submit" style="font-size:20px;font-weight:bold;margin-left:20px;margin-bottom:15px" name="register" value="Register">
+  <input type="Submit" style="font-size:20px;font-weight:bold;margin-left:10px;margin-bottom:15px" name="reset" value="Reset">
+</form>
+</body>
+
+</html>

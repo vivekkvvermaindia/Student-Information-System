@@ -1,0 +1,5 @@
+1.adminpanel.php
+2.mydetails.php
+3.view_all_student.php
+4.view_all_student.php~
+5.styles.css

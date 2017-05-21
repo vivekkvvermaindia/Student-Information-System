@@ -1,0 +1,37 @@
+<?php
+session_start();
+?>
+<!DOCTYPE html>
+<html>
+<head>
+<title>
+Administrator Login
+</title>
+<link rel="stylesheet" href="site.css">
+<link rel="stylesheet" href="jquery/jquery-ui.min.css">
+<script src="jquery/external/jquery/jquery.js"></script>
+<script src="jquery/jquery-ui.min.js"></script>
+<style>
+*{
+margin:0;
+}
+.w{
+text-align:center;
+margin-top:15px;
+}
+</style>
+</head>
+<body>
+<p id="c">National Institute of Technology Durgapur</p>
+<ul>
+	<li><a href="mydetails.php">My Details</a></li>
+	<li style="float:right"><a href="logout.php">Log out</a></li>
+</ul>
+<div class="w">
+<?php
+$z = "Welcome admin " . $_SESSION['username'] ;
+echo "<h2> $z </h2>" ;
+?>
+</p>
+</body>
+</html>
